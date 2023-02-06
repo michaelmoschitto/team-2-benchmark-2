@@ -24,3 +24,7 @@ def test_1():
     results_1 = src.benchmark_2.test_function()
     assert (results_1 == answers.loc["test 1"]["Answer"])
     
+
+def test_2():
+    results_2 = src.benchmark_2.test_function()
+    assert (results_2 == answers.loc["test 2"]["Answer"])
