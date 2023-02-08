@@ -62,3 +62,4 @@ def run_benchmarks(model_func) -> dict:
             "mse": mean_squared_error(y_test, preds),
             "runtime": perf,
         }
+    return results
