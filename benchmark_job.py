@@ -15,7 +15,7 @@ def benchmarks():
         print("Error: unknown username ")
         sys.exit()
     try:
-        user_results = UserResults(username=sys.argv[0], datasets=results)
+        user_results = UserResults(username=sys.argv[1], datasets=results)
     except Exception as e:
         print(f"Error: {e}")
     user_results.send_results()

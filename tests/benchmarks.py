@@ -22,23 +22,6 @@ def run_benchmarks(model_func) -> dict:
     datasets = {
         "video_games": preprocess_video_games_df("data/video_games.csv"),
         "life": preprocess_life_df("data/life_expectancy.csv"),
-        "flare": preprocess_flare_df(
-            link="https://archive.ics.uci.edu/ml/machine-learning-databases/solar-flare/flare.data2",
-            sep=" ",
-            names=[
-                "class",
-                "size",
-                "spot",
-                "activity",
-                "evolution",
-                "prev24hr",
-                "histcomplex",
-                "histcomplexsundisk",
-                "area",
-                "largest-spotarea",
-                "C",
-            ],
-        ),
     }
 
     np.random.seed(SEED)
@@ -53,7 +36,7 @@ def run_benchmarks(model_func) -> dict:
         preds = None
 
         def benchmark():
-            global preds
+            nonlocal preds
             model.fit(x_train, y_train)
             preds = model.predict(x_test)
 
